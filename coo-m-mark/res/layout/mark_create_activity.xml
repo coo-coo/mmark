@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/activity_common" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_mark_create_tsi"
+            style="@style/btn_common"
+            android:layout_width="0dip"
+            android:layout_weight="19"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_mark_create_sep"
+            style="@style/btn_common"
+            android:layout_width="0dip"
+            android:layout_weight="2"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_mark_create_tso"
+            style="@style/btn_common"
+            android:layout_width="0dip"
+            android:layout_weight="19"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View style="@style/view_space" />
+
+    <ScrollView
+        android:id="@+id/sv_mark"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:scrollbarStyle="outsideOverlay" >
+	
+	<EditText
+            android:id="@+id/et_mark_create_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_shape"
+            android:gravity="left"
+            android:hint="@string/app_name"
+            android:minLines="5"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold" >
+        </EditText>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_mark_create"
+        style="@style/btn_common"
+        android:layout_width="match_parent"
+        android:text="@string/mark_create" />
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">刻度</string>
+    <string name="app_url">http://lightapp.baidu.com/?appid=1568236</string>
+    <string name="app_copyright">2014</string>
+    <string name="app_back">返回</string>
+    <string name="app_exit">退出</string>
+    <string name="app_update">更新</string>
+    <string name="app_register">注册</string>
+    <string name="app_login">登录</string>
+    <string name="app_test">测试</string>
+    <string name="app_submit">提交</string>
+    <string name="app_create">创建</string>
+    <string name="app_blank"></string>
+    <string name="app_blank2">  |  </string>
+    
+
+    <!-- Game Properties -->
+    <string name="item_game_init_text">开始</string>
+    <string name="item_game_over_text">结束</string>
+    <string name="item_game_score_text">成绩</string>
+    <string name="item_game_help_text">帮助</string>
+    <string name="item_main_about_text">关于刻度</string>
+    <string name="item_main_version_text">版本信息</string>
+    <string name="item_more_text">更多&#8230;</string>
+    <string name="item_main_illustrate_text">说明</string>
+    <string name="item_main_share_text">分享微信</string>
+
+    <string name="mark_create">发出</string>
+    <string name="mark_check">查看</string>
+</resources>

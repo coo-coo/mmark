@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coo resource="update">
+    	<release version="1.0" code="1" release="TODO" store="TODO">
+		<items author="shenboqing@163.com" update="2015-01-20">
+		    	<item desc="创建(保存)刻度" module="刻度"/>
+			<item desc="展示刻度" module="刻度"/>
+			<item desc="欢迎界面|版本信息" module="框架"/>
+			<item desc="创建工程" module="框架"/>
+		</items>
+	</release>
+</coo>
