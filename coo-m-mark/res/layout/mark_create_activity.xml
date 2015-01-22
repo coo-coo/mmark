@@ -43,7 +43,7 @@
             android:id="@+id/et_mark_create_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/et_shape"
+            android:background="@drawable/shape_edittext"
             android:gravity="left"
             android:hint="@string/app_name"
             android:minLines="5"

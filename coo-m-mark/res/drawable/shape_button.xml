@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	
+    <!-- Button 的激活状态和钝化状态样式 -->
+    <item android:state_enabled="true"><shape>
+            <gradient android:endColor="@color/orange" android:startColor="@color/orange" />
+
+            <corners android:radius="5dip" />
+        </shape></item>
+    <item android:state_enabled="false"><shape>
+            <gradient android:endColor="@color/gray" android:startColor="@color/gray" />
+
+            <corners android:radius="5dip" />
+        </shape></item>
+
+</selector>

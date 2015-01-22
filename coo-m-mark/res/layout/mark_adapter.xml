@@ -8,22 +8,28 @@
         style="@style/tv_command_row"
         android:layout_width="0dip"
         android:layout_gravity="left|center_vertical"
-        android:layout_weight="5"
-        android:gravity="left" />
+        android:layout_weight="7"
+        android:gravity="left|center_vertical" />
 
-    <TextView
-        android:id="@+id/tv_mark_note"
-        style="@style/tv_command_row"
+    <LinearLayout
         android:layout_width="0dip"
-        android:layout_gravity="left|center_vertical"
-        android:layout_weight="2"
-        android:gravity="left" />
+        android:layout_height="60dp"
+        android:layout_weight="3"
+        android:gravity="right|center_vertical" >
 
-    <Button
-        android:id="@+id/btn_mark_check"
-        style="@style/btn_common"
-        android:layout_width="60dp"
-        android:layout_gravity="left|center_vertical"
-        android:text="@string/mark_check" />
+        <Button
+            style="@style/btn_common"
+            android:id="@+id/btn_mark_check"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:text="@string/mark_check" />
+
+        <ImageView
+            android:id="@+id/iv_mark_help"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/app_blank"
+            android:gravity="left|center_vertical" />
+    </LinearLayout>
 
 </LinearLayout>

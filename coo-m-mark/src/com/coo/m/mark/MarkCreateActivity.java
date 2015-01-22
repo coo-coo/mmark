@@ -24,7 +24,8 @@ import com.kingstar.ngbf.ms.util.model.NgbfRuntimeException;
  * @author boqing.shen
  */
 public class MarkCreateActivity extends CommonBizActivity implements
-		DatePickerDialog.OnDateSetListener,DialogInterface.OnClickListener {
+		DatePickerDialog.OnDateSetListener,
+		DialogInterface.OnClickListener {
 
 	protected static final String TAG = MarkCreateActivity.class.getName();
 	/**
@@ -61,14 +62,14 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		// 指定打开日期
 		calendarTsi = Calendar.getInstance();
 		// 创建日期
-		tv_tsi.setText(MarkManager.getTsDateText(calendarTsi
+		tv_tsi.setText(MarkManager.getTsMinText(calendarTsi
 				.getTimeInMillis()));
 
 		// btn_create.setImageDrawable(getResources().getDrawable(
 		// R.drawable.ic_stub));
 
 		calendarTso = Calendar.getInstance();
-		calendarTso.add(Calendar.DAY_OF_MONTH, 15);
+		calendarTso.add(Calendar.DAY_OF_MONTH, 1);
 		updateTsoText();
 
 		tv_tso.setOnClickListener(this);
@@ -117,10 +118,9 @@ public class MarkCreateActivity extends CommonBizActivity implements
 			mark.setTsi(start);
 			mark.setTso(end);
 			boolean tof = mark.save();
-			if(!tof){
+			if (!tof) {
 				throw new NgbfRuntimeException("保存失败!");
-			}
-			else{
+			} else {
 				Intent intent = new Intent(this,
 						SysMainActivity.class);
 				startActivity(intent);
@@ -148,16 +148,13 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		tv_tso.setText(MarkManager.getTsDateText(end) + "(" + diffDays
 				+ "天后)");
 	}
-	
+
 	private void notifyError(String msg) {
-		dialog = new AlertDialog.Builder(this)
-				.setCancelable(false)
+		dialog = new AlertDialog.Builder(this).setCancelable(false)
 				.setTitle("操作失败")
-				.setIcon(R.drawable.gplus_32)
-				.setMessage(msg)
-				.setNegativeButton(
-						"知道了",
-						this).show();
+				.setIcon(MarkManager.APP_ICON_RESID)
+				.setMessage(msg).setNegativeButton("知道了", this)
+				.show();
 	}
 
 	public AlertDialog dialog = null;

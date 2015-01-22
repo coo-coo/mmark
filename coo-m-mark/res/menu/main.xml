@@ -38,6 +38,13 @@
                 android:showAsAction="ifRoom|withText"
                 android:title="@string/item_main_version_text">
             </item>
+            <item
+                android:id="@+id/item_mark_his"
+                android:icon="@drawable/mark_32"
+                android:orderInCategory="10"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/item_mark_his_text">
+            </item>
         </menu>
     </item>
 

@@ -71,6 +71,9 @@ public class SysMainActivity extends GenericActivity {
 		case R.id.item_mark_create:
 			handleNext(this, MarkCreateActivity.class);
 			break;
+		case R.id.item_mark_his:
+			handleNext(this, MarkHisActivity.class);
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}

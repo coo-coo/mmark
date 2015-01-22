@@ -21,8 +21,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
  */
 public final class MarkManager {
 
-//	public static Class<?> MAIN_CLASS = MarkCreateActivity.class;
-	 public static Class<?> MAIN_CLASS = SysMainActivity.class;
+	 public static Class<?> MAIN_CLASS = MarkHisActivity.class;
+//	public static Class<?> MAIN_CLASS = SysMainActivity.class;
 
 	/**
 	 * APP网站宣传地址,Baidu轻应用
@@ -34,7 +34,10 @@ public final class MarkManager {
 	public static String APP_NAME = "刻度";
 
 	public static String APP_DESC = "刻度";
-
+	
+	
+	public static int APP_ICON_RESID = R.drawable.mark_32;
+	
 	/**
 	 * 图片加载参数,参见ImageLoader组件
 	 * 
@@ -63,6 +66,10 @@ public final class MarkManager {
 	 */
 	public static String getTsDateText(long ts) {
 		return DateUtil.format(new Date(ts), "yyyy-MM-dd");
+	}
+	
+	public static String getTsDateText2(long ts) {
+		return DateUtil.format(new Date(ts), "yyyy年MM月dd日");
 	}
 
 	/**
@@ -130,7 +137,7 @@ public final class MarkManager {
 	 */
 	public static NetLink createNetLink(String description) {
 		// 指定标题等基础信息
-		Bitmap thumb = ResourceFactory.getBitmap(R.drawable.gplus_32);
+		Bitmap thumb = ResourceFactory.getBitmap(APP_ICON_RESID);
 		NetLink nl = new NetLink("一起来玩\"消磨\"吧", APP_URL, thumb);
 		nl.setDescription(description);
 		return nl;
@@ -140,6 +147,7 @@ public final class MarkManager {
 	 * 根据状态获得Mark信息
 	 */
 	public static List<Mark> getMarks(String status) {
+		// TODO 获得tso和当前tsc时间戳之间的消息
 		return DataSupport.where("status = ?", status)
 				.order("tsi desc").find(Mark.class);
 	}
