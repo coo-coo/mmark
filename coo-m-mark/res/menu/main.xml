@@ -21,30 +21,48 @@
                 android:icon="@drawable/gplus_32"
                 android:orderInCategory="10"
                 android:showAsAction="ifRoom|withText"
-                android:title="@string/item_main_about_text">
+                android:title="@string/item_sys_about_text">
             </item>
             <item
                 android:id="@+id/item_main_share"
                 android:icon="@drawable/ico_cloud_upload"
                 android:orderInCategory="10"
                 android:showAsAction="ifRoom|withText"
-                android:title="@string/item_main_share_text">
+                android:title="@string/item_sys_share_text">
             </item>
             -->
             <item
-                android:id="@+id/item_main_version"
-                android:icon="@drawable/ico_question_sign"
-                android:orderInCategory="10"
-                android:showAsAction="ifRoom|withText"
-                android:title="@string/item_main_version_text">
-            </item>
-            <item
                 android:id="@+id/item_mark_his"
+<<<<<<< HEAD
+                android:icon="@drawable/ic_logo_32"
+=======
                 android:icon="@drawable/mark_32"
-                android:orderInCategory="10"
+>>>>>>> refs/remotes/origin/master
+                android:orderInCategory="100"
                 android:showAsAction="ifRoom|withText"
-                android:title="@string/item_mark_his_text">
-            </item>
+                android:title="@string/item_mark_his_text"/>
+            <item
+<<<<<<< HEAD
+                android:id="@+id/item_sys_contact"
+                android:icon="@drawable/ic_logo_32"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:title="@string/item_sys_contact_text"/>
+            <item
+=======
+>>>>>>> refs/remotes/origin/master
+                android:id="@+id/item_sys_version"
+                android:icon="@drawable/ico_question_sign"
+                android:orderInCategory="100"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/item_sys_version_text"/>
+            <item
+                android:id="@+id/item_sys_quit"
+                android:icon="@drawable/ico_off"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:title="@string/item_sys_quit_text"/>
+            
         </menu>
     </item>
 

@@ -21,7 +21,7 @@
         android:layout_below="@id/tv_mark_his_tsi"
         android:contentDescription="@string/app_blank"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_banner" />
+        android:src="@drawable/ic_mark_banner" />
 
     <TextView
         android:id="@+id/tv_mark_his_note"

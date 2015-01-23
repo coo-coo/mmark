@@ -17,15 +17,15 @@ public class MarkHelpDialog extends MarkCheckDialog {
 	/**
 	 * 構造函數
 	 */
-	public MarkHelpDialog(Activity parent, Mark item, MarkAdapter adpater) {
+	public MarkHelpDialog(Activity parent, MarkBean item,
+			MarkAdapter adpater) {
 		super(parent, item, adpater);
 	}
 
 	@Override
 	public void initControls(LinearLayout layout) {
 		TextView tvNote = new TextView(parent);
-		String text = "还没有到查看的时间("
-				+ MarkManager.getTsDateText2(item.getTso())
+		String text = "还没有到查看的时间(" + TsUtil.dateCn(item.getTso())
 				+ ")哦,到时候再来看吧~";
 		tvNote.setText(text);
 		// 添加控件

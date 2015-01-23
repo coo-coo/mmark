@@ -1,4 +1,4 @@
-package com.coo.m.mark;
+package com.coo.m.sys;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.coo.m.mark.R;
 import com.kingstar.ngbf.ms.util.android.CommonAdapter;
 import com.kingstar.ngbf.ms.util.android.CommonItemHolder;
 import com.kingstar.ngbf.ms.util.model.CommonItem;

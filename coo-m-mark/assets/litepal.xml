@@ -3,10 +3,21 @@
 
     <dbname value="mark" />
 
-    <version value="1" />
+<<<<<<< HEAD
+    <version value="3" />
+=======
+    <version value="2" />
+>>>>>>> refs/remotes/origin/master
 
     <list>
-        <mapping class="com.coo.m.mark.Mark" />
+
+        <mapping class="com.coo.m.mark.MarkBean" />
+
+        <mapping class="com.coo.m.sys.AccountBean" />
+<<<<<<< HEAD
+        <mapping class="com.coo.m.sys.ContactBean" />
+=======
+>>>>>>> refs/remotes/origin/master
     </list>
 
 </litepal>

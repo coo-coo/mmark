@@ -5,17 +5,24 @@
     <!-- CommonItem:标题 -->
 
     <TextView
-        android:id="@+id/common_item_row_label"
+        android:id="@+id/tv_contact_name"
         style="@style/tv_command_row"
         android:layout_width="0dp"
         android:layout_weight="3"
         android:gravity="left|center_vertical" />
 
     <TextView
-        android:id="@+id/common_item_row_value"
+        android:id="@+id/tv_contact_mobile"
         style="@style/tv_common_row"
         android:layout_width="0dip"
         android:layout_weight="7"
-        android:gravity="right|center_vertical" />
+        android:gravity="left|center_vertical" />
+
+    <Button
+        android:id="@+id/btn_contact_invite"
+        style="@style/btn_common"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="@string/contact_invite" />
 
 </LinearLayout>

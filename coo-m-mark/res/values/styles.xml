@@ -22,9 +22,8 @@
     <style name="btn_common" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">16sp</item>
-        <!-- item name="android:background">@color/orange</item -->
         <item name="android:background">@drawable/shape_button</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">60dp</item>
     </style>
 
     <style name="tv_common" parent="@android:style/TextAppearance">
@@ -99,7 +98,7 @@
     <style name="listview_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:divider">@color/orange</item>
+        <item name="android:divider">@color/original</item>
         <item name="android:background">@color/white</item>
         <item name="android:dividerHeight">1dp</item>
         <item name="android:cacheColorHint">@color/black</item>

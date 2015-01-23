@@ -1,10 +1,12 @@
-package com.coo.m.mark;
+package com.coo.m.sys;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.widget.ListView;
 
+import com.coo.m.mark.AppConfig;
+import com.coo.m.mark.R;
 import com.kingstar.ngbf.ms.util.Reference;
 import com.kingstar.ngbf.ms.util.android.CommonBizActivity;
 import com.kingstar.ngbf.ms.util.android.CommonBizOptions;
@@ -35,6 +37,18 @@ public class SysVersionActivity extends CommonBizActivity {
 		this.setContentView(listView);
 
 		// 定义适配器
+<<<<<<< HEAD
+		adapter = new CommonItemAdapter(this, getItems(), listView);
+	}
+
+	/**
+	 * 属性条目对象
+	 */
+	private List<CommonItem> getItems() {
+		String vcurrent = ServiceProvider.getAppVersionName(this);
+		List<CommonItem> items = new ArrayList<CommonItem>();
+		items.add(new CommonItem("version.app", "应用名称", AppConfig.NAME));
+=======
 		adapter = new ItemAdapter(this, getItems(), listView);
 	}
 
@@ -45,7 +59,8 @@ public class SysVersionActivity extends CommonBizActivity {
 		String vcurrent = ServiceProvider.getAppVersionName(this);
 		List<CommonItem> items = new ArrayList<CommonItem>();
 		items.add(new CommonItem("version.app", "应用名称",
-				MarkManager.APP_NAME));
+				AppConfig.NAME));
+>>>>>>> refs/remotes/origin/master
 		items.add(new CommonItem("version.current", "当前版本", vcurrent));
 		items.add(new CommonItem("version.author", "开发作者",
 				"shenboqing@163.com"));

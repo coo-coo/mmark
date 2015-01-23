@@ -18,12 +18,12 @@ import com.kingstar.ngbf.ms.util.android.CommonItemHolder;
  * @since 1.0
  * 
  */
-public class MarkHisAdapter extends CommonAdapter<Mark> {
+public class MarkHisAdapter extends CommonAdapter<MarkBean> {
 
 	MarkHisItemHolder holder = new MarkHisItemHolder();
 	Context context = null;
 
-	public MarkHisAdapter(Activity parent, List<Mark> items,
+	public MarkHisAdapter(Activity parent, List<MarkBean> items,
 			AbsListView composite) {
 		super(parent, items, composite);
 		this.context = parent;
@@ -49,10 +49,10 @@ public class MarkHisAdapter extends CommonAdapter<Mark> {
 	}
 
 	@Override
-	public void initHolderValue(CommonItemHolder ciHolder, Mark item) {
+	public void initHolderValue(CommonItemHolder ciHolder, MarkBean item) {
 		holder = (MarkHisItemHolder) ciHolder;
-		holder.tv_tsi.setText(MarkManager.getTsDateText2(item.getTsi()));
-		holder.tv_tso.setText(MarkManager.getTsDateText2(item.getTso()));
+		holder.tv_tsi.setText(TsUtil.dateCn(item.getTsi()));
+		holder.tv_tso.setText(TsUtil.dateCn(item.getTso()));
 		holder.tv_note.setText(item.getNote());
 	}
 }

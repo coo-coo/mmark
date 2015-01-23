@@ -21,12 +21,13 @@ import com.kingstar.ngbf.ms.util.android.CommonItemHolder;
  * @since 1.0
  * 
  */
-public class MarkAdapter extends CommonAdapter<Mark> {
+public class MarkAdapter extends CommonAdapter<MarkBean> {
 
 	MarkItemHolder holder = new MarkItemHolder();
 	Context context = null;
 
-	public MarkAdapter(Activity parent, List<Mark> items, ListView composite) {
+	public MarkAdapter(Activity parent, List<MarkBean> items,
+			ListView composite) {
 		super(parent, items, composite);
 		this.context = parent;
 	}
@@ -51,10 +52,10 @@ public class MarkAdapter extends CommonAdapter<Mark> {
 	}
 
 	@Override
-	public void initHolderValue(CommonItemHolder ciHolder, Mark item) {
+	public void initHolderValue(CommonItemHolder ciHolder, MarkBean item) {
 		holder = (MarkItemHolder) ciHolder;
-		String ts = "(" + MarkManager.getTsDateText2(item.getTsi())
-				+ ")你对自己说..." + item.getNote();
+		String ts = "(" + TsUtil.dateCn(item.getTsi()) + ")你对自己说..."
+				+ item.getNote();
 		holder.tv_tsi.setText(ts);
 
 		// 判定是否可以查看,打开...
@@ -71,7 +72,7 @@ public class MarkAdapter extends CommonAdapter<Mark> {
 		icon.setPadding(0, 0, 1, 1);
 		// TODO 根据Channel的状态进行设置图片资源, 0:未关注,1:已关注
 		if (checkable) {
-//			icon.setImageResource(R.drawable.ic_empty);
+			// icon.setImageResource(R.drawable.ic_empty);
 		} else {
 			icon.setImageResource(R.drawable.balloon_blue);
 			icon.setOnClickListener(new MarkItemListener(parent,
@@ -80,8 +81,8 @@ public class MarkAdapter extends CommonAdapter<Mark> {
 		}
 	}
 
-	private boolean isCheckable(Mark item) {
-		int diffDays = MarkManager.getDiffDays(
+	private boolean isCheckable(MarkBean item) {
+		int diffDays = TsUtil.getDiffDays(
 				System.currentTimeMillis(), item.getTso());
 		if (Math.abs(diffDays) < 2) {
 			// 小于15天,调试用
@@ -113,7 +114,7 @@ class MarkItemHolder extends CommonItemHolder {
 class MarkItemListener implements OnClickListener {
 
 	private Activity context;
-	private Mark item;
+	private MarkBean item;
 	private MarkAdapter adapter;
 	// 监听操作类型
 	private int action = ACTION_CHECK;
@@ -121,7 +122,7 @@ class MarkItemListener implements OnClickListener {
 	public final static int ACTION_CHECK = 0;
 	public final static int ACTION_HELP = 1;
 
-	public MarkItemListener(Activity context, Mark item,
+	public MarkItemListener(Activity context, MarkBean item,
 			MarkAdapter adapter, int action) {
 		this.context = context;
 		this.item = item;

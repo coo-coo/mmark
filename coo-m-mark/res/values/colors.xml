@@ -1,5 +1,8 @@
 <resources>
-
+	
+    <!-- default color -->
+    <color name="original">#3EB365</color>
+    <!-- list color for theme -->
     <color name="white">#FFFFFF</color>
     <color name="blue">#0098CB</color>
     <color name="black">#000000</color>
