@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <coo resource="update">
     	<release version="1.0" code="1" release="TODO" store="TODO">
+		<items author="shenboqing@163.com" update="2015-01-23">
+		    	<item desc="分离出sys文件夹,框架部分" module="框架"/>
+			<item desc="增加账号登录部分功能" module="框架"/>
+		</items>
 		<items author="shenboqing@163.com" update="2015-01-20">
 		    	<item desc="创建(保存)刻度" module="刻度"/>
 			<item desc="展示刻度" module="刻度"/>

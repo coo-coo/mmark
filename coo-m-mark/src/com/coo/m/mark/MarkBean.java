@@ -9,7 +9,7 @@ import org.litepal.crud.DataSupport;
  * @since 1.0
  * 
  */
-public class Mark extends DataSupport {
+public class MarkBean extends DataSupport {
 
 	private long id = 0l;
 	/**
@@ -27,13 +27,22 @@ public class Mark extends DataSupport {
 	private String note = "";
 
 	/**
-	 * 创建(插入)时间戳，单位：毫秒
+	 * 消息类型:文本,音频,图片(+文本),视频,网页链接(+文本)等
+	 */
+	private String type = TYPE_TEXT;
+
+	/**
+	 * 创建(插入)时间戳，单位：毫秒 TimeStamp of Insert
 	 */
 	private long tsi = 0l;
 	/**
 	 * 定义打开的日期时间戳,指定日期的12:00
 	 */
 	private long tso = 0l;
+	/**
+	 * 实际打开时间戳:TimeStamp of Open Realtime
+	 */
+	private long tsor = 0l;
 	/**
 	 * 创建、打开状态 在一定时间范围内才能被打开,打开之后,进入历史...
 	 */
@@ -52,10 +61,18 @@ public class Mark extends DataSupport {
 	public static String CLOUDED_NO = "0";
 	public static String CLOUDED_YES = "1";
 
+	// 类型:系统自动,文本,音频,图片(+文本),视频,网页链接(+文本)等
+	public static String TYPE_TEXT = "1";
+	public static String TYPE_LINK = "2";
+	public static String TYPE_IMAGE = "3";
+	public static String TYPE_AUDIO = "4";
+	public static String TYPE_MEDIA = "5";
+	public static String TYPE_SYS = "0";
+
 	/**
 	 * 构造函数,创建一个Host给Target的Note
 	 */
-	public Mark(String host, String target, String note, long tso) {
+	public MarkBean(String host, String target, String note, long tso) {
 		this.host = host;
 		this.target = target;
 		this.note = note;
@@ -65,7 +82,7 @@ public class Mark extends DataSupport {
 		this.clouded = CLOUDED_NO;
 	}
 
-	public Mark() {
+	public MarkBean() {
 
 	}
 
@@ -131,5 +148,21 @@ public class Mark extends DataSupport {
 
 	public void setClouded(String clouded) {
 		this.clouded = clouded;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public long getTsor() {
+		return tsor;
+	}
+
+	public void setTsor(long tsor) {
+		this.tsor = tsor;
 	}
 }

@@ -13,13 +13,13 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
-        android:name="com.coo.m.mark.MarkApplication"
+        android:name="com.coo.m.mark.Application"
         android:allowBackup="true"
         android:icon="@drawable/mark_64"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.coo.m.mark.SysWelcomeActivity"
+            android:name="com.coo.m.sys.SysWelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,16 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.coo.m.mark.SysMainActivity" >
-        </activity>
-        <activity android:name="com.coo.m.mark.SysVersionActivity" >
-        </activity>
-        <activity android:name="com.coo.m.mark.SysAboutActivity" >
-        </activity>
-        <activity android:name="com.coo.m.mark.MarkCreateActivity" >
-        </activity>
-        <activity android:name="com.coo.m.mark.MarkHisActivity" >
-        </activity>
+        <activity android:name="com.coo.m.sys.SysMainActivity" />
+        <activity android:name="com.coo.m.sys.SysVersionActivity" />
+        <activity android:name="com.coo.m.sys.SysAboutActivity" />
+        <activity android:name="com.coo.m.sys.SysLoginActivity" />
+        <activity android:name="com.coo.m.sys.SysRegisterActivity" />
+        <activity android:name="com.coo.m.mark.MarkHisActivity" />
+        <activity android:name="com.coo.m.mark.MarkCreateActivity" />
     </application>
 
 </manifest>

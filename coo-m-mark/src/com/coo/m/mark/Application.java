@@ -2,8 +2,7 @@ package com.coo.m.mark;
 
 import org.litepal.LitePalApplication;
 
-import android.util.Log;
-
+import com.coo.m.sys.SysMainActivity;
 import com.coo.ms.cloud.weixin.WeixinApi;
 import com.kingstar.ngbf.ms.util.android.CommonConfig;
 import com.kingstar.ngbf.ms.util.android.res.ResourceFactory;
@@ -17,14 +16,11 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
  * @since 1.0
  * 
  */
-public class MarkApplication extends LitePalApplication {
-
-	private static final String TAG = MarkApplication.class.getSimpleName();
+public class Application extends LitePalApplication {
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.i(TAG, "App on created..");
 
 		// 初始化Model
 		initCommonModel();
@@ -37,10 +33,34 @@ public class MarkApplication extends LitePalApplication {
 		// 初始化资源Factory
 		ResourceFactory.init(this);
 
-		// // 初始化微信SDK
+		// 初始化微信SDK
 		WeixinApi.register(getApplicationContext());
+
+		// Say Hello
+		helloMark();
 	}
 
+	/**
+	 * 初始化第一个Mark(当发现数据库没有时,认定是新装,创建)
+	 */
+	private void helloMark() {
+		if (AppManager.getMarksAll().size() == 0) {
+			MarkBean mark = new MarkBean();
+			mark.setHost("13917081673");
+			mark.setTarget("13917081673");
+			String helloNote = "欢迎使用'"
+					+ AppConfig.NAME
+					+ "',在这里您可以写信给自己,给自己的好友,设定信打开的时间,不到时间是不能打开的哦~";
+			mark.setNote(helloNote);
+			mark.setTsi(System.currentTimeMillis());
+			mark.setTso(System.currentTimeMillis());
+			mark.save();
+		}
+	}
+
+	/**
+	 * 注册CommonModel参数
+	 */
 	private void initCommonModel() {
 		CommonConfig.clearParams();
 		CommonConfig.initParam(CommonConfig.KEY_CLASS_HOME_ACTIVITY,

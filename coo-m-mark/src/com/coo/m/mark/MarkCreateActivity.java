@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.coo.m.sys.SysMainActivity;
 import com.kingstar.ngbf.ms.util.Reference;
 import com.kingstar.ngbf.ms.util.StringUtil;
 import com.kingstar.ngbf.ms.util.android.CommonBizActivity;
@@ -62,8 +63,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		// 指定打开日期
 		calendarTsi = Calendar.getInstance();
 		// 创建日期
-		tv_tsi.setText(MarkManager.getTsMinText(calendarTsi
-				.getTimeInMillis()));
+		tv_tsi.setText(TsUtil.minEn(calendarTsi.getTimeInMillis()));
 
 		// btn_create.setImageDrawable(getResources().getDrawable(
 		// R.drawable.ic_stub));
@@ -98,7 +98,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 	private void doCreate() {
 		long start = calendarTsi.getTimeInMillis();
 		long end = calendarTso.getTimeInMillis();
-		int diffDays = MarkManager.getDiffDays(start, end);
+		int diffDays = TsUtil.getDiffDays(start, end);
 		try {
 			if (diffDays < 1) {
 				throw new NgbfRuntimeException(
@@ -111,7 +111,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 			if (note.length() > 70) {
 				throw new NgbfRuntimeException("消息内容不能多于70个字符!");
 			}
-			Mark mark = new Mark();
+			MarkBean mark = new MarkBean();
 			mark.setHost("13917081673");
 			mark.setTarget("13917081673");
 			mark.setNote(note);
@@ -144,15 +144,13 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		// 计算打开时间和当前时间的相差天数
 		long start = calendarTsi.getTimeInMillis();
 		long end = calendarTso.getTimeInMillis();
-		int diffDays = MarkManager.getDiffDays(start, end);
-		tv_tso.setText(MarkManager.getTsDateText(end) + "(" + diffDays
-				+ "天后)");
+		int diffDays = TsUtil.getDiffDays(start, end);
+		tv_tso.setText(TsUtil.dateEn(end) + "(" + diffDays + "天后)");
 	}
 
 	private void notifyError(String msg) {
 		dialog = new AlertDialog.Builder(this).setCancelable(false)
-				.setTitle("操作失败")
-				.setIcon(MarkManager.APP_ICON_RESID)
+				.setTitle("操作失败").setIcon(AppConfig.ICON_RESID)
 				.setMessage(msg).setNegativeButton("知道了", this)
 				.show();
 	}

@@ -1,4 +1,4 @@
-package com.coo.m.mark;
+package com.coo.m.sys;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -13,6 +13,8 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.coo.m.mark.AppConfig;
+import com.coo.m.mark.R;
 import com.kingstar.ngbf.ms.util.android.res.AnimFactory;
 
 /**
@@ -59,7 +61,7 @@ public class SysWelcomeActivity extends Activity implements AnimationListener {
 		imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 		imageView.setMaxHeight(size.x);
 		imageView.setMaxWidth(size.y);
-		
+
 		anim = AnimFactory.alpha(0.0f, 1.0f, 1000);
 		anim.setFillEnabled(true);
 		anim.setFillAfter(true);
@@ -70,7 +72,7 @@ public class SysWelcomeActivity extends Activity implements AnimationListener {
 	@Override
 	public void onAnimationEnd(Animation arg0) {
 		Intent intent = new Intent(SysWelcomeActivity.this,
-				MarkManager.MAIN_CLASS);
+				AppConfig.MAIN);
 		startActivity(intent);
 		this.finish();
 	}

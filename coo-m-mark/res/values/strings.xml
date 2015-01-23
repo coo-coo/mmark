@@ -14,17 +14,34 @@
     <string name="app_create">创建</string>
     <string name="app_blank"></string>
     <string name="app_blank2">  |  </string>
+
+    <!-- Menu Item Text -->
+    <string name="item_mark_his_text">历史刻度</string>
+    <string name="item_sys_quit_text">应用退出</string>
+    <string name="item_sys_about_text">关于刻度</string>
+    <string name="item_sys_version_text">版本信息</string>
+    <string name="item_sys_config_text">系统设置</string>
+    <string name="item_sys_illustrate_text">说明</string>
+    <string name="item_sys_share_text">分享微信</string>
+    <string name="item_more_text">更多&#8230;</string>
+    
     
 
-    <!-- Game Properties -->
-    <string name="item_mark_his_text">历史刻度</string>
-   
-    <string name="item_main_about_text">关于刻度</string>
-    <string name="item_main_version_text">版本信息</string>
-    <string name="item_more_text">更多&#8230;</string>
-    <string name="item_main_illustrate_text">说明</string>
-    <string name="item_main_share_text">分享微信</string>
+    <!-- Login -->
+    <string name="login_username_hint">手机号</string>
+    <string name="login_password_hint">密码</string>
+    <string name="login_register_link">没有帐号？ <a href="#">注册</a></string>
 
+    <!-- Register -->
+    <string name="register_mobile_hint">请输入手机号码</string>
+    <string name="register_sms_hint">请输入短信验证码</string>
+    <string name="register_smsget_hint">获取验证码</string>
+    <string name="register_pwd1_hint">请设置登录密码</string>
+    <string name="register_pwd2_hint">请确认登录密码</string>
+    <string name="register_vote1">已阅读并同意</string>
+    <string name="register_vote2">《Vote服务条款》</string>
+    <string name="register_clause">TODO Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....Vote服务条款....</string>
     <string name="mark_create">发出</string>
     <string name="mark_check">查看</string>
+
 </resources>

@@ -14,7 +14,7 @@ import com.kingstar.ngbf.ms.util.android.CommonItemDialog;
  * @author boqing.shen
  * 
  */
-public class MarkCheckDialog extends CommonItemDialog<Mark> {
+public class MarkCheckDialog extends CommonItemDialog<MarkBean> {
 
 	protected MarkAdapter adpater = null;
 
@@ -24,7 +24,7 @@ public class MarkCheckDialog extends CommonItemDialog<Mark> {
 	 * @param parent
 	 * @param item
 	 */
-	public MarkCheckDialog(Activity parent, Mark item, MarkAdapter adpater) {
+	public MarkCheckDialog(Activity parent, MarkBean item, MarkAdapter adpater) {
 		super(parent, item);
 		this.adpater = adpater;
 	}
@@ -43,7 +43,7 @@ public class MarkCheckDialog extends CommonItemDialog<Mark> {
 	public void doOkAction() {
 		// Toast.makeText(parent, item.getNote(),
 		// Toast.LENGTH_SHORT).show();
-		item.setStatus(Mark.STATUS_OPENED);
+		item.setStatus(MarkBean.STATUS_OPENED);
 		item.update(item.getId());
 		adpater.remove(item);
 		adpater.notifyDataSetChanged();
@@ -56,12 +56,12 @@ public class MarkCheckDialog extends CommonItemDialog<Mark> {
 
 	@Override
 	public int getResIconId() {
-		return MarkManager.APP_ICON_RESID;
+		return AppConfig.ICON_RESID;
 	}
 
 	@Override
 	public String getTitle() {
-		String title = "刻度日期:" + MarkManager.getTsDateText2(item.getTsi());
+		String title = "刻度日期:" + TsUtil.dateCn(item.getTsi());
 		return title;
 	}
 

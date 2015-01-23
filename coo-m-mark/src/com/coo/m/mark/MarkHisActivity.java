@@ -22,7 +22,7 @@ public class MarkHisActivity extends CommonBizActivity {
 		// 代码构建ListView,不进行Find,需指定attr,参见styes.xml
 		GridView gridView = (GridView)this.findViewById(R.id.gv_mark_his);
 		
-		List<Mark> items = MarkManager.getMarks(Mark.STATUS_OPENED);
+		List<MarkBean> items = AppManager.getMarks(MarkBean.STATUS_OPENED);
 		// 定义适配器
 		@SuppressWarnings("unused")
 		MarkHisAdapter adapter = new MarkHisAdapter(this, items,

@@ -1,12 +1,15 @@
-package com.coo.m.mark;
+package com.coo.m.sys;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.coo.ms.cloud.model.NetLink;
+import com.coo.m.mark.AppManager;
+import com.coo.m.mark.MarkAdapter;
+import com.coo.m.mark.MarkBean;
+import com.coo.m.mark.MarkCreateActivity;
+import com.coo.m.mark.MarkHisActivity;
+import com.coo.m.mark.R;
 import com.coo.ms.cloud.weixin.WeixinHandler;
 import com.kingstar.ngbf.ms.util.android.GenericActivity;
 
@@ -21,6 +24,7 @@ public class SysMainActivity extends GenericActivity {
 	/**
 	 * WeixinHandler
 	 */
+	@SuppressWarnings("unused")
 	private WeixinHandler wxHandler = null;
 	/**
 	 * 适配器
@@ -47,7 +51,7 @@ public class SysMainActivity extends GenericActivity {
 
 		// 定义适配器
 		adapter = new MarkAdapter(this,
-				MarkManager.getMarks(Mark.STATUS_CREATED),
+				AppManager.getMarks(MarkBean.STATUS_CREATED),
 				listView);
 	}
 
@@ -65,38 +69,46 @@ public class SysMainActivity extends GenericActivity {
 		// case R.id.item_main_share:
 		// shareToWeixin();
 		// break;
-		case R.id.item_main_version:
-			handleNext(this, SysVersionActivity.class);
-			break;
 		case R.id.item_mark_create:
-			handleNext(this, MarkCreateActivity.class);
+			onMarkCreate();
 			break;
 		case R.id.item_mark_his:
-			handleNext(this, MarkHisActivity.class);
+			handleNext(MarkHisActivity.class);
+			break;
+		case R.id.item_sys_version:
+			handleNext(SysVersionActivity.class);
+			break;
+		case R.id.item_sys_quit:
+			onSysQuit();
 			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
 	/**
-	 * 发送Link地址到微信
-	 * 
-	 * @since 1.3
+	 * 系统退出
 	 */
-	@SuppressWarnings("unused")
-	private void shareToWeixin() {
-		NetLink nl = MarkManager
-				.createNetLink("百度,安智,安卓,91等市场都有的下哦~(暂时只支持安卓手机..)");
-		wxHandler.share(nl);
+	private void onSysQuit(){
+		AccountManager.onLogoff();
+		// 跳转到登录界面
+		handleNext(SysLoginActivity.class);
 	}
-
+	
 	/**
-	 * 任务结束,跳转到下一个Activity,指定动画效果
+	 * 创建刻度：判定是否登录
 	 */
-	@SuppressWarnings("rawtypes")
-	private void handleNext(Context context, Class cl) {
-		Intent intent = new Intent();
-		intent.setClass(context, cl);
-		startActivity(intent);
+	private void onMarkCreate(){
+		// 获得系统账号
+		AccountBean account = AccountManager.get();
+		if(account==null || account.getStatus()==AccountBean.STATUS_LOGOFF){
+			// 没有账号,表明还没有登录或者没有注册,需要绑定账号
+			// 如果有账号，但是登录状态为OFF,证明人工的退出,需要重新登录
+			// 跳转到登录界面
+			handleNext(SysLoginActivity.class);
+		}
+		else{
+			// 已经有账号，且已经登录....
+			handleNext(MarkCreateActivity.class);
+		}
 	}
 }
