@@ -37,7 +37,6 @@ public class SysVersionActivity extends CommonBizActivity {
 		this.setContentView(listView);
 
 		// 定义适配器
-<<<<<<< HEAD
 		adapter = new CommonItemAdapter(this, getItems(), listView);
 	}
 
@@ -48,19 +47,6 @@ public class SysVersionActivity extends CommonBizActivity {
 		String vcurrent = ServiceProvider.getAppVersionName(this);
 		List<CommonItem> items = new ArrayList<CommonItem>();
 		items.add(new CommonItem("version.app", "应用名称", AppConfig.NAME));
-=======
-		adapter = new ItemAdapter(this, getItems(), listView);
-	}
-
-	/**
-	 * 属性条目对象
-	 */
-	private List<CommonItem> getItems() {
-		String vcurrent = ServiceProvider.getAppVersionName(this);
-		List<CommonItem> items = new ArrayList<CommonItem>();
-		items.add(new CommonItem("version.app", "应用名称",
-				AppConfig.NAME));
->>>>>>> refs/remotes/origin/master
 		items.add(new CommonItem("version.current", "当前版本", vcurrent));
 		items.add(new CommonItem("version.author", "开发作者",
 				"shenboqing@163.com"));

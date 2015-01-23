@@ -2,7 +2,6 @@ package com.coo.m.mark;
 
 import org.litepal.LitePalApplication;
 
-<<<<<<< HEAD
 import com.coo.m.sys.ContactManager;
 import com.coo.m.sys.SysMainActivity;
 import com.coo.ms.cloud.weixin.WeixinApi;
@@ -43,46 +42,8 @@ public class Application extends LitePalApplication {
 		
 		// 同步本地通訊錄..
 		ContactManager.syncLocalDevice(getApplicationContext());
-=======
-import com.coo.m.sys.SysMainActivity;
-import com.coo.ms.cloud.weixin.WeixinApi;
-import com.kingstar.ngbf.ms.util.android.CommonConfig;
-import com.kingstar.ngbf.ms.util.android.res.ResourceFactory;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
-/**
- * [框架]应用，APP入口
- * 
- * @author boqing.shen
- * @since 1.0
- * 
- */
-public class Application extends LitePalApplication {
-
-	@Override
-	public void onCreate() {
-		super.onCreate();
-
-		// 初始化Model
-		initCommonModel();
-
-		// 初始化ImageLoader
-		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-				this).build();
-		ImageLoader.getInstance().init(config);
-
-		// 初始化资源Factory
-		ResourceFactory.init(this);
-
-		// 初始化微信SDK
-		WeixinApi.register(getApplicationContext());
-
-		// Say Hello
-		helloMark();
->>>>>>> refs/remotes/origin/master
 	}
-
+	
 	/**
 	 * 初始化第一个Mark(当发现数据库没有时,认定是新装,创建)
 	 */

@@ -75,12 +75,10 @@ public class SysMainActivity extends GenericActivity {
 		case R.id.item_mark_his:
 			handleNext(MarkHisActivity.class);
 			break;
-<<<<<<< HEAD
+
 		case R.id.item_sys_contact:
 			handleNext(SysContactActivity.class);
 			break;
-=======
->>>>>>> refs/remotes/origin/master
 		case R.id.item_sys_version:
 			handleNext(SysVersionActivity.class);
 			break;
@@ -94,25 +92,25 @@ public class SysMainActivity extends GenericActivity {
 	/**
 	 * 系统退出
 	 */
-	private void onSysQuit(){
+	private void onSysQuit() {
 		AccountManager.onLogoff();
 		// 跳转到登录界面
 		handleNext(SysLoginActivity.class);
 	}
-	
+
 	/**
 	 * 创建刻度：判定是否登录
 	 */
-	private void onMarkCreate(){
+	private void onMarkCreate() {
 		// 获得系统账号
 		AccountBean account = AccountManager.get();
-		if(account==null || account.getStatus()==AccountBean.STATUS_LOGOFF){
+		if (account == null
+				|| account.getStatus() == AccountBean.STATUS_LOGOFF) {
 			// 没有账号,表明还没有登录或者没有注册,需要绑定账号
 			// 如果有账号，但是登录状态为OFF,证明人工的退出,需要重新登录
 			// 跳转到登录界面
 			handleNext(SysLoginActivity.class);
-		}
-		else{
+		} else {
 			// 已经有账号，且已经登录....
 			handleNext(MarkCreateActivity.class);
 		}

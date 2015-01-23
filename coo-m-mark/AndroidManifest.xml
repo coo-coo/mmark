@@ -15,8 +15,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    
-    
+
     <application
         android:name="com.coo.m.mark.Application"
         android:allowBackup="true"
@@ -37,10 +36,7 @@
         <activity android:name="com.coo.m.sys.SysAboutActivity" />
         <activity android:name="com.coo.m.sys.SysLoginActivity" />
         <activity android:name="com.coo.m.sys.SysRegisterActivity" />
-<<<<<<< HEAD
         <activity android:name="com.coo.m.sys.SysContactActivity" />
-=======
->>>>>>> refs/remotes/origin/master
         <activity android:name="com.coo.m.mark.MarkHisActivity" />
         <activity android:name="com.coo.m.mark.MarkCreateActivity" />
     </application>

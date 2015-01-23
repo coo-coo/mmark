@@ -4,7 +4,11 @@
     <dbname value="mark" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <version value="3" />
+=======
+    <version value="2" />
+>>>>>>> refs/remotes/origin/master
 =======
     <version value="2" />
 >>>>>>> refs/remotes/origin/master
@@ -15,7 +19,10 @@
 
         <mapping class="com.coo.m.sys.AccountBean" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <mapping class="com.coo.m.sys.ContactBean" />
+=======
+>>>>>>> refs/remotes/origin/master
 =======
 >>>>>>> refs/remotes/origin/master
     </list>
