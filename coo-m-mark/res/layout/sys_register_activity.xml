@@ -4,12 +4,10 @@
 
     <View style="@style/view_space" />
 
-    <View style="@style/view_space" />
-
     <ImageView
         android:id="@+id/img_sys_register_logo"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
         android:contentDescription="@string/app_blank"
         android:src="@drawable/ic_logo_108" />
@@ -21,7 +19,7 @@
     <EditText
         android:id="@+id/et_sys_register_mobile"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@drawable/shape_edittext"
         android:hint="@string/register_mobile_hint"
         android:inputType="number"
@@ -38,7 +36,7 @@
         <EditText
             android:id="@+id/et_sys_register_verify"
             android:layout_width="0dip"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_weight="5"
             android:background="@drawable/shape_edittext"
             android:hint="@string/register_sms_hint"
@@ -46,7 +44,7 @@
             android:singleLine="true" />
 
         <Button
-            android:id="@+id/btn_sys_register_sendcode"
+            android:id="@+id/btn_sys_register_sms"
             style="@style/btn_common"
             android:layout_width="0dip"
             android:layout_marginLeft="10dp"
@@ -59,7 +57,7 @@
     <EditText
         android:id="@+id/et_sys_register_pwd"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@drawable/shape_edittext"
         android:hint="@string/register_pwd1_hint"
         android:inputType="textPassword"
@@ -71,7 +69,7 @@
     <EditText
         android:id="@+id/et_sys_register_pwd2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@drawable/shape_edittext"
         android:hint="@string/register_pwd2_hint"
         android:inputType="textPassword"
@@ -80,11 +78,18 @@
 
     <View style="@style/view_space" />
 
+    <Button
+        android:id="@+id/btn_sys_register_submit"
+        style="@style/btn_common"
+        android:layout_width="match_parent"
+        android:text="@string/app_register" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:visibility="invisible" >
 
         <CheckBox
             android:id="@+id/cb_sys_register_agree"
@@ -92,24 +97,16 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:drawablePadding="4dp"
-            android:padding="2dp"
-            android:text="@string/register_vote1" />
+            android:paddingLeft="2dp"
+            android:text="@string/register_clause1" />
 
         <TextView
             android:id="@+id/tv_sys_register_clause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:text="@string/register_vote2"
+            android:text="@string/register_clause2"
             android:textColor="@color/original" />
-
-        <View style="@style/view_space" />
-
-        <Button
-            android:id="@+id/btn_sys_register_submit"
-            style="@style/btn_common"
-            android:layout_width="match_parent"
-            android:text="@string/app_register" />
 
         <View style="@style/view_space" />
 
@@ -130,4 +127,5 @@
             </EditText>
         </ScrollView>
     </LinearLayout>
+
 </LinearLayout>

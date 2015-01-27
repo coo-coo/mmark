@@ -2,7 +2,7 @@ package com.coo.m.mark;
 
 import android.graphics.Bitmap;
 
-import com.coo.m.sys.SysContactActivity;
+import com.coo.m.sys.SysRegisterActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 /**
@@ -16,8 +16,8 @@ public final class AppConfig {
 	/**
 	 * 主应用
 	 */
-	public static Class<?> MAIN = SysContactActivity.class;
-	// public static Class<?> MAIN = SysMainActivity.class;
+	 public static Class<?> MAIN = SysRegisterActivity.class;
+//	public static Class<?> MAIN = MarkCreateActivity.class;
 
 	/**
 	 * APP网站宣传地址,Baidu轻应用

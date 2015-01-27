@@ -11,7 +11,6 @@ import android.provider.ContactsContract;
 
 import com.kingstar.ngbf.ms.util.RegexUtil;
 
-
 /**
  * 通讯录管理
  * 
@@ -22,16 +21,16 @@ public final class ContactManager {
 
 	public ContactManager() {
 	}
-	
+
 	/**
-	 * 同步本设备的通讯录信息
-	 * TODO 考虑多次同步
+	 * 同步本设备的通讯录信息 TODO 考虑多次同步
+	 * 
 	 * @param context
 	 */
 	public static void syncLocalDevice(Context context) {
 		new Thread(new SyncLocalDeviceTask(context)).start();
 	}
-	
+
 	/**
 	 * 返回所有的通讯录信息
 	 * 
@@ -52,8 +51,7 @@ public final class ContactManager {
 		list.add(new ContactBean("13816965673", "罗麻麻"));
 		return list;
 	}
-	
-	
+
 	/**
 	 * 同步本地电话薄信息
 	 */
@@ -62,7 +60,8 @@ public final class ContactManager {
 		Cursor cursor = context.getContentResolver().query(
 				ContactsContract.Contacts.CONTENT_URI, null,
 				null, null, null);
-//		int count = 0;
+		//
+
 		// 遍历查询结果，获取系统中所有联系人
 		while (cursor.moveToNext()) {
 			// 获取联系人ID
@@ -73,8 +72,6 @@ public final class ContactManager {
 			String name = cursor
 					.getString(cursor
 							.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-
-			
 
 			// 使用ContentResolver查找联系人的电话号码
 			Cursor phones = context
@@ -92,8 +89,9 @@ public final class ContactManager {
 						.getString(phones
 								.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 				// 是手机账号才获取
-				if(RegexUtil.isMobile(mobile)){
-					ContactBean cb = new ContactBean(mobile,name);
+				if (RegexUtil.isMobile(mobile)) {
+					ContactBean cb = new ContactBean(
+							mobile, name);
 					list.add(cb);
 				}
 			}
@@ -105,18 +103,23 @@ public final class ContactManager {
 }
 
 class SyncLocalDeviceTask implements Runnable {
-	
+
 	private Context context;
-	
-	public SyncLocalDeviceTask(Context context){
+
+	public SyncLocalDeviceTask(Context context) {
 		this.context = context;
 	}
-	
+
 	public void run() {
 		List<ContactBean> dbItems = ContactManager.findAll();
-		if(dbItems.size()==0){
+		if (dbItems.size() == 0) {
 			// TODO 不为零也能同步?
-			List<ContactBean> localItems = ContactManager.findLocal(context);
+			List<ContactBean> localItems = ContactManager
+					.findLocal(context);
+
+			// if(localItems.size()==0){
+			// localItems = ContactManager.mockAll();
+			// }
 			for (ContactBean cb : localItems) {
 				cb.setHost("HOST-TODO");
 				cb.setTsi(System.currentTimeMillis());
@@ -125,4 +128,3 @@ class SyncLocalDeviceTask implements Runnable {
 		}
 	}
 }
-

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coo.m.mark.R;
+import com.coo.m.mark.TsUtil;
 import com.kingstar.ngbf.ms.util.android.CommonAdapter;
 import com.kingstar.ngbf.ms.util.android.CommonItemHolder;
 
@@ -58,11 +59,41 @@ public class SysContactAdapter extends CommonAdapter<ContactBean> {
 		holder = (ContactItemHolder) ciHolder;
 		holder.tv_mobile.setText(item.getMobile());
 		holder.tv_name.setText(item.getName());
-		holder.btn_invite.setOnClickListener(new ContactItemListener(
-				parent, item, this,
-				ContactItemListener.ACTION_INVITE));
+
+		boolean invitable = isInvitable(item);
+		holder.btn_invite.setEnabled(invitable);
+		if (invitable) {
+			holder.btn_invite.setText("邀请来玩");
+			holder.btn_invite
+					.setOnClickListener(new ContactItemListener(
+							parent,
+							item,
+							this,
+							ContactItemListener.ACTION_INVITE));
+		} else {
+			holder.btn_invite.setText("已邀请");
+		}
 	}
 
+	/**
+	 * 判断通讯录信息是否可以被邀请...
+	 */
+	private boolean isInvitable(ContactBean item) {
+		boolean tof = true;
+		if (item.getReged().equals(ContactBean.REG_YES)) {
+			// 已注册,不能再被邀请
+			// TODO 可以给TA写信
+			tof = false;
+		} else {
+			// 未注册或不详
+			long current = System.currentTimeMillis();
+			if (TsUtil.getDiffDays(item.getTsu(), current) < 1) {
+				// 一天内已经邀请
+				tof = false;
+			}
+		}
+		return tof;
+	}
 }
 
 /**
@@ -83,7 +114,6 @@ class ContactItemListener implements OnClickListener {
 
 	private Activity context;
 	private ContactBean item;
-	@SuppressWarnings("unused")
 	private SysContactAdapter adapter;
 	// 监听操作类型
 	@SuppressWarnings("unused")
@@ -102,7 +132,11 @@ class ContactItemListener implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		// TODO 发送短信,进行邀请
-		String text = item.getMobile() + "短信邀请";
-		Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+		// 设置邀请时间
+		item.setTsu(System.currentTimeMillis());
+		item.update(item.getId());
+		Toast.makeText(context, "TODO短信邀请:" + item.getMobile(),
+				Toast.LENGTH_SHORT).show();
+		adapter.notifyDataSetChanged();
 	}
 }

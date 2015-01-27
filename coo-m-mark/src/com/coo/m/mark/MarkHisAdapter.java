@@ -51,8 +51,8 @@ public class MarkHisAdapter extends CommonAdapter<MarkBean> {
 	@Override
 	public void initHolderValue(CommonItemHolder ciHolder, MarkBean item) {
 		holder = (MarkHisItemHolder) ciHolder;
-		holder.tv_tsi.setText(TsUtil.dateCn(item.getTsi()));
-		holder.tv_tso.setText(TsUtil.dateCn(item.getTso()));
+		holder.tv_tsi.setText(TsUtil.dateCn(item.getTsi())+"(发)");
+		holder.tv_tso.setText(TsUtil.dateCn(item.getTso())+"(收)");
 		holder.tv_note.setText(item.getNote());
 	}
 }

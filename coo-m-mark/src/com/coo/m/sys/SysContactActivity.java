@@ -28,7 +28,7 @@ public class SysContactActivity extends CommonBizActivity {
 	@Override
 	public void loadContent() {
 		// 从SQLLite中获取
-		List<ContactBean> list = ContactManager.mockAll();
+		List<ContactBean> list = ContactManager.findAll();
 		// 代码构建ListView,不进行Find,需指定attr,参见styes.xml
 		ListView listView = new ListView(this, null,
 				R.attr.ref_common_lv);

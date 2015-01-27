@@ -1,8 +1,10 @@
 package com.coo.m.sys;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import com.coo.m.mark.AppManager;
 import com.coo.m.mark.MarkAdapter;
@@ -40,19 +42,17 @@ public class SysMainActivity extends GenericActivity {
 
 	@Override
 	public void loadContent() {
-		setContentView(R.layout.sys_blank_activity);
+		setContentView(R.layout.sys_main_activity);
 		// 初始化WxHandler
 		wxHandler = new WeixinHandler(this);
 
 		// 代码构建ListView,不进行Find,需指定attr,参见styes.xml
-		ListView listView = new ListView(this, null,
-				R.attr.ref_common_lv);
-		this.setContentView(listView);
+		GridView gridView = (GridView) this.findViewById(R.id.gv_mark);
 
+		List<MarkBean> items = AppManager
+				.getMarks(MarkBean.STATUS_CREATED);
 		// 定义适配器
-		adapter = new MarkAdapter(this,
-				AppManager.getMarks(MarkBean.STATUS_CREATED),
-				listView);
+		adapter = new MarkAdapter(this, items, gridView);
 	}
 
 	@Override

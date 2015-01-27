@@ -6,9 +6,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.kingstar.ngbf.ms.util.android.CommonAdapter;
@@ -23,11 +23,12 @@ import com.kingstar.ngbf.ms.util.android.CommonItemHolder;
  */
 public class MarkAdapter extends CommonAdapter<MarkBean> {
 
-	MarkItemHolder holder = new MarkItemHolder();
-	Context context = null;
+	private MarkItemHolder holder = new MarkItemHolder();
+	@SuppressWarnings("unused")
+	private Context context = null;
 
 	public MarkAdapter(Activity parent, List<MarkBean> items,
-			ListView composite) {
+			AbsListView composite) {
 		super(parent, items, composite);
 		this.context = parent;
 	}
@@ -44,6 +45,8 @@ public class MarkAdapter extends CommonAdapter<MarkBean> {
 		holder = new MarkItemHolder();
 		holder.tv_tsi = (TextView) convertView
 				.findViewById(R.id.tv_mark_tsi);
+		holder.tv_tso = (TextView) convertView
+				.findViewById(R.id.tv_mark_tso);
 		holder.btn_check = (Button) convertView
 				.findViewById(R.id.btn_mark_check);
 		holder.iv_help = (ImageView) convertView
@@ -54,17 +57,14 @@ public class MarkAdapter extends CommonAdapter<MarkBean> {
 	@Override
 	public void initHolderValue(CommonItemHolder ciHolder, MarkBean item) {
 		holder = (MarkItemHolder) ciHolder;
-		String ts = "(" + TsUtil.dateCn(item.getTsi()) + ")你对自己说..."
-				+ item.getNote();
-		holder.tv_tsi.setText(ts);
+		// String tsi = "(" + TsUtil.dateCn(item.getTsi()) + ")你对自己说..."
+		// + item.getNote();
+		// holder.tv_tsi.setText(tsi);
+		holder.tv_tsi.setText(TsUtil.dateEn(item.getTsi()) + "(发)");
+		holder.tv_tso.setText(TsUtil.dateEn(item.getTso()) + "(收)");
 
 		// 判定是否可以查看,打开...
 		boolean checkable = isCheckable(item);
-		holder.btn_check.setEnabled(checkable);
-
-		holder.btn_check.setOnClickListener(new MarkItemListener(
-				parent, item, this,
-				MarkItemListener.ACTION_CHECK));
 
 		ImageView icon = holder.iv_help;
 		icon.setAdjustViewBounds(true);
@@ -73,17 +73,23 @@ public class MarkAdapter extends CommonAdapter<MarkBean> {
 		// TODO 根据Channel的状态进行设置图片资源, 0:未关注,1:已关注
 		if (checkable) {
 			// icon.setImageResource(R.drawable.ic_empty);
+			holder.btn_check.setEnabled(true);
+			holder.btn_check.setOnClickListener(new MarkItemListener(
+					parent, item, this,
+					MarkItemListener.ACTION_CHECK));
+			icon.setVisibility(View.INVISIBLE);
 		} else {
 			icon.setImageResource(R.drawable.balloon_blue);
 			icon.setOnClickListener(new MarkItemListener(parent,
 					item, this,
 					MarkItemListener.ACTION_HELP));
+			holder.btn_check.setVisibility(View.INVISIBLE);
 		}
 	}
 
 	private boolean isCheckable(MarkBean item) {
-		int diffDays = TsUtil.getDiffDays(
-				System.currentTimeMillis(), item.getTso());
+		int diffDays = TsUtil.getDiffDays(System.currentTimeMillis(),
+				item.getTso());
 		if (Math.abs(diffDays) < 2) {
 			// 小于15天,调试用
 			return true;
@@ -101,6 +107,7 @@ public class MarkAdapter extends CommonAdapter<MarkBean> {
  */
 class MarkItemHolder extends CommonItemHolder {
 	public TextView tv_tsi;
+	public TextView tv_tso;
 	public Button btn_check;
 	public ImageView iv_help;
 }

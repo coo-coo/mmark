@@ -36,6 +36,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 	private TextView tv_tsi;
 	private TextView tv_tso;
 	private Button btn_create;
+	private Button btn_tso;
 
 	// 当前日期
 	private Calendar calendarTsi;
@@ -59,11 +60,12 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		tv_tso = (TextView) findViewById(R.id.tv_mark_create_tso);
 		et_note = (EditText) findViewById(R.id.et_mark_create_note);
 		btn_create = (Button) findViewById(R.id.btn_mark_create);
+		btn_tso = (Button) findViewById(R.id.btn_mark_create_tso);
 
 		// 指定打开日期
 		calendarTsi = Calendar.getInstance();
 		// 创建日期
-		tv_tsi.setText(TsUtil.minEn(calendarTsi.getTimeInMillis()));
+		tv_tsi.setText("发信日期:" + TsUtil.dateCn(calendarTsi.getTimeInMillis()));
 
 		// btn_create.setImageDrawable(getResources().getDrawable(
 		// R.drawable.ic_stub));
@@ -72,7 +74,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		calendarTso.add(Calendar.DAY_OF_MONTH, 1);
 		updateTsoText();
 
-		tv_tso.setOnClickListener(this);
+		btn_tso.setOnClickListener(this);
 		btn_create.setOnClickListener(this);
 	}
 
@@ -81,7 +83,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		case R.id.btn_mark_create:
 			doCreate();
 			break;
-		case R.id.tv_mark_create_tso:
+		case R.id.btn_mark_create_tso:
 			// 显示DatePickerDialog组件
 			DatePickerDialog dpd = new DatePickerDialog(this, this,
 					calendarTso.get(Calendar.YEAR),
@@ -145,7 +147,7 @@ public class MarkCreateActivity extends CommonBizActivity implements
 		long start = calendarTsi.getTimeInMillis();
 		long end = calendarTso.getTimeInMillis();
 		int diffDays = TsUtil.getDiffDays(start, end);
-		tv_tso.setText(TsUtil.dateEn(end) + "(" + diffDays + "天后)");
+		tv_tso.setText("收信日期:" + TsUtil.dateCn(end) + "(" + diffDays + "天后)");
 	}
 
 	private void notifyError(String msg) {

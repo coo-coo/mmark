@@ -61,7 +61,7 @@ public class MarkCheckDialog extends CommonItemDialog<MarkBean> {
 
 	@Override
 	public String getTitle() {
-		String title = "刻度日期:" + TsUtil.dateCn(item.getTsi());
+		String title = "发信日期:" + TsUtil.dateCn(item.getTsi());
 		return title;
 	}
 

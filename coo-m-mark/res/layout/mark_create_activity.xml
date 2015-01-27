@@ -6,29 +6,25 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/tv_mark_create_tsi"
-            style="@style/btn_common"
+            android:id="@+id/tv_mark_create_tso"
+            style="@style/tv_mark_note"
             android:layout_width="0dip"
-            android:layout_weight="19"
-            android:gravity="center_vertical"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:layout_weight="9"
+            android:gravity="left|center_vertical" />
 
         <TextView
             android:id="@+id/tv_mark_create_sep"
             style="@style/btn_common"
             android:layout_width="0dip"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="@color/white" />
 
-        <TextView
-            android:id="@+id/tv_mark_create_tso"
+        <Button
+            android:id="@+id/btn_mark_create_tso"
             style="@style/btn_common"
-            android:layout_width="0dip"
-            android:layout_weight="19"
-            android:gravity="center_vertical"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:layout_width="60dp"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/mark_create_tso_change" />
     </LinearLayout>
 
     <View style="@style/view_space" />
@@ -38,20 +34,24 @@
         android:layout_width="fill_parent"
         android:layout_height="120dp"
         android:scrollbarStyle="outsideOverlay" >
-	
-	<EditText
+        <EditText
             android:id="@+id/et_mark_create_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext"
             android:gravity="left"
-            android:hint="@string/app_name"
+            android:hint="@string/mark_create_hint"
             android:minLines="5"
             android:textColor="@color/blue"
-            android:textSize="16sp"
-            android:textStyle="bold" >
+            android:textSize="16sp" >
         </EditText>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_mark_create_tsi"
+        style="@style/tv_common_small"
+        android:layout_width="match_parent"
+        android:gravity="right|center_vertical" />
 
     <Button
         android:id="@+id/btn_mark_create"

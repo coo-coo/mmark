@@ -24,7 +24,8 @@ public class MarkHelpDialog extends MarkCheckDialog {
 
 	@Override
 	public void initControls(LinearLayout layout) {
-		TextView tvNote = new TextView(parent);
+		TextView tvNote = new TextView(parent, null,
+				R.attr.ref_tv_mark_note);
 		String text = "还没有到查看的时间(" + TsUtil.dateCn(item.getTso())
 				+ ")哦,到时候再来看吧~";
 		tvNote.setText(text);

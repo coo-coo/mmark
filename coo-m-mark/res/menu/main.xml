@@ -29,17 +29,17 @@
                 android:orderInCategory="10"
                 android:showAsAction="ifRoom|withText"
                 android:title="@string/item_sys_share_text">
-            </item>
+            </item>
             -->
             <item
                 android:id="@+id/item_mark_his"
-                android:icon="@drawable/ic_logo_32"
+                android:icon="@drawable/ico_leaf"
                 android:orderInCategory="100"
                 android:showAsAction="ifRoom|withText"
                 android:title="@string/item_mark_his_text"/>
             <item
                 android:id="@+id/item_sys_contact"
-                android:icon="@drawable/ic_logo_32"
+                android:icon="@drawable/ico_user"
                 android:orderInCategory="100"
                 android:showAsAction="never"
                 android:title="@string/item_sys_contact_text"/>

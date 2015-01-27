@@ -14,6 +14,7 @@ import com.kingstar.ngbf.ms.util.Reference;
 import com.kingstar.ngbf.ms.util.RegexUtil;
 import com.kingstar.ngbf.ms.util.StringUtil;
 import com.kingstar.ngbf.ms.util.android.CommonBizActivity;
+import com.kingstar.ngbf.ms.util.android.CommonBizOptions;
 import com.kingstar.ngbf.ms.util.model.NgbfRuntimeException;
 import com.kingstar.ngbf.s.ntp.NtpMessage;
 
@@ -49,10 +50,25 @@ public class SysRegisterActivity extends CommonBizActivity {
 	// 登录密码
 	private String password = "";
 
-	public int getResViewLayoutId() {
-		return R.layout.sys_register_activity;
+	// public int getResViewLayoutId() {
+	// return R.layout.sys_register_activity;
+	// }
+
+	@Override
+	public CommonBizOptions getOptions() {
+		return CommonBizOptions
+				.blank()
+				.headerTitle("用户注册")
+				.resViewLayoutId(R.layout.sys_register_activity)
+				.homeEnabled(false);
 	}
 
+	// /**
+	// * 标题
+	// */
+	// public String getHeaderTitle() {
+	// return "用户注册";
+	// }
 	/**
 	 * 初始化view
 	 */
@@ -63,7 +79,7 @@ public class SysRegisterActivity extends CommonBizActivity {
 		btn_submit.setOnClickListener(this);
 
 		// 发送验证码按钮
-		btn_sendcode = (Button) findViewById(R.id.btn_sys_register_sendcode);
+		btn_sendcode = (Button) findViewById(R.id.btn_sys_register_sms);
 		btn_sendcode.setOnClickListener(this);
 
 		// 输入框
@@ -87,14 +103,14 @@ public class SysRegisterActivity extends CommonBizActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_sys_register_sendcode:
-			doSendVerifyNo();
+		case R.id.btn_sys_register_sms:
+			onSms();
 			break;
 		case R.id.btn_sys_register_submit:
-			doRegister();
+			onRegister();
 			break;
 		case R.id.tv_sys_register_clause:
-			doClause();
+			onClause();
 			break;
 		}
 	}
@@ -102,7 +118,7 @@ public class SysRegisterActivity extends CommonBizActivity {
 	/**
 	 * 显示和隐藏法律条款...
 	 */
-	private void doClause() {
+	private void onClause() {
 		showClause = !showClause;
 		if (showClause) {
 			sv_clause.setVisibility(View.VISIBLE);
@@ -114,16 +130,9 @@ public class SysRegisterActivity extends CommonBizActivity {
 	private boolean showClause = false;
 
 	/**
-	 * 标题
-	 */
-	public String getHeaderTitle() {
-		return "用户注册";
-	}
-
-	/**
 	 * 发送验证码实现
 	 */
-	private void doSendVerifyNo() {
+	private void onSms() {
 		String mobile = et_mobile.getText().toString();
 		boolean mobileValid = RegexUtil.isMobile(mobile);
 		if (!mobileValid) {
@@ -141,7 +150,7 @@ public class SysRegisterActivity extends CommonBizActivity {
 	/**
 	 * 注册提交
 	 */
-	private void doRegister() {
+	private void onRegister() {
 		try {
 			if (!cb_agree.isChecked()) {
 				throw new NgbfRuntimeException(
